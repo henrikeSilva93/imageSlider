@@ -7,50 +7,50 @@ let position = 0
 const interval = 6000
 const selectedColor = "#566573"
 const keyboardShortcut = {
-   ArrowRight: () => nextSlide(),
-   ArrowLeft: () => prevSlide()
+  ArrowRight: () => nextSlide(),
+  ArrowLeft: () => prevSlide()
 }
 
 function initSlider(image) {
-    slider.innerHTML = `<img src="${image}" width="800" height="400"/>`
+  slider.innerHTML = `<img src="${image}" width="800" height="400"/>`
 }
 
 function nextSlide() {
-if(position >= images.length -1 ){
-        position = -1
-    }
-    position++
-    initSlider(images[position])
-    selectButton()
+  if (position >= images.length - 1) {
+    position = -1
+  }
+  position++
+  initSlider(images[position])
+  selectButton()
 }
 
 function prevSlide() {
-if(position <= 0){
-        position = images.length
-    }
-    position--
-    selectButton()
-    initSlider(images[position])
+  if (position <= 0) {
+    position = images.length
+  }
+  position--
+  selectButton()
+  initSlider(images[position])
 }
 
-setInterval(()=> nextSlide(), interval)
+setInterval(() => nextSlide(), interval)
 prevBtn.addEventListener('click', () => prevSlide())
 nextBtn.addEventListener('click', () => nextSlide())
 document.addEventListener('keydown', (e) => keyboardShortcut[e.key]())
 
 function selectButton() {
-  const buttons =  document.querySelectorAll("button")
- buttons.forEach((button, index) => {
-  button.style.backgroundColor = ""
-    if(index === position + 1 && index > 0){
+  const buttons = document.querySelectorAll("button")
+  buttons.forEach((button, index) => {
+    button.style.backgroundColor = ""
+    if (index === position + 1 && index > 0) {
       button.style.backgroundColor = selectedColor
     }
   })
 }
 
-images.forEach((_, index)=> {
+images.forEach((_, index) => {
   const button = document.createElement("button")
-  if(index === 0 ){
+  if (index === 0) {
     button.style.backgroundColor = selectedColor
   }
   button.innerText = index + 1

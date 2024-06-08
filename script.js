@@ -2,7 +2,7 @@ const slider = document.getElementById('slider')
 const paginator = document.getElementById('paginator')
 const nextBtn = document.getElementById('next')
 const prevBtn = document.getElementById('prev')
-const images = ["img/01.jpg", "img/02.jpg", "img/03.jpg", "img/04.jpg", "img/05.jpg", "img/06.jpg"]
+const images = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg"]
 let position = 0
 const interval = 6000
 const selectedColor = "#566573"
@@ -12,7 +12,7 @@ const keyboardShortcut = {
 }
 
 function initSlider(image) {
-  slider.innerHTML = `<img src="${image}" width="800" height="400"/>`
+  slider.innerHTML = `<img src="img/${image}" width="800" height="400"/>`
 }
 
 function nextSlide() {
